@@ -1,0 +1,12 @@
+#!/bin/sh
+source /opt/ftp/variables.txt
+rm -R -f /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmp/*
+cd /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload
+newflash=`ls -tr | tail -1`
+wget -q -N ftp://atlgers.lazboy.atl.local/gers/e1fgat1/print/FLASH.*  --user=$username --password=$password
+cp -r $newflash /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmp/
+mv -f /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmp/FLASH.* /home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt
+chown homepage.la-z-boyga.com:homepage.la-z-boyga.com /home/homepage/public_html/files/rank/flash/web/webflash.txt
+#chown -R nobody:nogroup /home/homepage/public_html/files/rank/flash/web
+#chmod -R 777 /home/homepage/public_html/files/rank/flash/web
+#date > /root/flashcomplete.txt

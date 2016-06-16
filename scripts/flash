@@ -1,0 +1,12 @@
+#!/bin/sh
+source /opt/ftp/variables.txt
+rm -R -f /home/homepage/public_html/files/rank/flash/tmp/*
+cd /home/homepage/public_html/files/rank/flash/tmpdownload
+newflash=`ls -tr | tail -1`
+wget -q -N ftp://ebcogers.la-z-boyaz.com/gers/e1lzbt1/print/FLASH.*  --user=$username --password=$password
+cp $newflash /home/homepage/public_html/files/rank/flash/tmp/
+mv -f /home/homepage/public_html/files/rank/flash/tmp/FLASH.* /home/homepage/public_html/files/rank/flash/web/webflash.txt
+chown homepage:homepage /home/homepage/public_html/files/rank/flash/web/webflash.txt
+#chown -R nobody:nogroup /home/homepage/public_html/files/rank/flash/web
+#chmod -R 777 /home/homepage/public_html/files/rank/flash/web
+#date > /root/flashcomplete.txt
