@@ -1,12 +1,25 @@
 #!/bin/sh
+
+#Input user/pw
 source /opt/ftp/variables.txt
+
+#Cleanup
 rm -R -f /home/homepage/public_html/files/rank/flash/tmp/*
+
+#Download Flash Reports
+echo "Downloading Flash Reports"
 cd /home/homepage/public_html/files/rank/flash/tmpdownload
-newflash=`ls -tr | tail -1`
+newflash=`cd /home/homepage/public_html/files/rank/flash/tmpdownload && ls -tr | tail -1`
 wget -q -N ftp://ebcogers.la-z-boyaz.com/gers/e1lzbt1/print/FLASH.*  --user=$username --password=$password
-cp $newflash /home/homepage/public_html/files/rank/flash/tmp/
-mv -f /home/homepage/public_html/files/rank/flash/tmp/FLASH.* /home/homepage/public_html/files/rank/flash/web/webflash.txt
+
+#Move Latest Flash to intranet site
+echo "The Latest Flash is $newflash"
+cp $newflash /home/homepage/public_html/files/rank/flash/web/webflash.txt
 chown homepage:homepage /home/homepage/public_html/files/rank/flash/web/webflash.txt
+
+#cp $newflash /home/homepage/public_html/files/rank/flash/tmp/
+#mv -f /home/homepage/public_html/files/rank/flash/tmp/FLASH.* /home/homepage/public_html/files/rank/flash/web/webflash.txt
+#chown homepage:homepage /home/homepage/public_html/files/rank/flash/web/webflash.txt
 #chown -R nobody:nogroup /home/homepage/public_html/files/rank/flash/web
 #chmod -R 777 /home/homepage/public_html/files/rank/flash/web
 #date > /root/flashcomplete.txt
