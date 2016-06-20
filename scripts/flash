@@ -3,9 +3,6 @@
 #Input user/pw
 source /opt/ftp/variables.txt
 
-#Cleanup
-rm -R -f /home/homepage/public_html/files/rank/flash/tmp/*
-
 #Download Flash Reports
 echo "Downloading Flash Reports"
 cd /home/homepage/public_html/files/rank/flash/tmpdownload
