@@ -1,4 +1,8 @@
 #!/bin/sh
+
+#Input user/pw
+. /opt/ftp/variables.txt
+
 #monthly purge of flash Reports
 rm -rf /home/homepage/public_html/files/rank/flash/tmpdownload/*
 rm -rf /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload/*
