@@ -5,9 +5,8 @@
 
 #Download Flash Reports
 echo "Downloading Flash Reports"
-cd "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"
 newflash=`cd /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload && ls -tr | tail -1`
-wget -q -N ftp://atlgers.lazboy.atl.local/gers/e1fgat1/print/FLASH.*  --user=$flash_username --password=$flash_password
+wget -q -N ftp://atlgers.lazboy.atl.local/gers/e1fgat1/print/FLASH.* -P "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"  --user=$flash_username --password=$flash_password
 chown -R homepage:homepage "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"
 
 #Move Latest Flash to intranet site
