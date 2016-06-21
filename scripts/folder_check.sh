@@ -8,10 +8,10 @@ shopt -s dotglob
 
 # Check for empty files using arrays
 chk_ebco=(/shares/importaz/*)
-(( ${#chk_ebco[*]} )) && echo "Files found in $1 directory." || echo "Directory $1 is empty."
+(( ${#chk_ebco[*]} )) && echo "Files found in $1 EBCO share." || echo "EBCO share $1 is empty."
 
 chk_fga=(/shares/importga/*)
-(( ${#chk_fga[*]} )) && echo "Files found in $1 directory." || echo "Directory $1 is empty."
+(( ${#chk_fga[*]} )) && echo "Files found in $1 FGA share." || echo "FGA share $1 is empty."
 
 # Unset the variable  for bash behavior
 shopt -u nullglob
