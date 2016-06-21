@@ -20,16 +20,18 @@ shopt -u dotglob
 #Move files if they exist
 if [ -z "$chk_ebco" ]
 then
-
+  echo "Not Moving Files"
 else
-  echo "Moving Files for Import"
+  echo "Moving Files for EBCO"
   mv /shares/importaz/* /home/homepage/public_html/files/import
+  chown -R homepage:homepage /home/homepage/public_html/files/import
 fi
 
 if [ -z "$chk_fga" ]
 then
-
+  echo "Not Moving Files"
 else
-  echo "Moving Files for Import"
-  mv /shares/importaz/* /home/homepage/public_html/files/import
+  echo "Moving Files for FGA"
+  mv /shares/importga/* /home/homepage.la-z-boyga.com/public_html/files/import
+  chown -R homepage.la-z-boyga.com:homepage.la-z-boyga.com /home/homepage.la-z-boyga.com/public_html/files/import
 fi
