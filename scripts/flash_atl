@@ -7,9 +7,9 @@
 echo "Downloading Flash Reports"
 newflash=`cd /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload && ls -tr | tail -1`
 wget -q -N ftp://atlgers.lazboy.atl.local/gers/e1fgat1/print/FLASH.* -P "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"  --user=$flash_username --password=$flash_password
-chown -R homepage:homepage "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"
+chown -R homepage.la-z-boyga.com:homepage.la-z-boyga.com "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"
 
 #Move Latest Flash to intranet site
 echo "The Latest Flash is $newflash"
 cp "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload/$newflash" "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt"
-chown homepage:homepage "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt"
+chown homepage.la-z-boyga.com:homepage.la-z-boyga.com "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt"
