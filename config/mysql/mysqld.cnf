@@ -14,7 +14,7 @@ lc-messages-dir	= /usr/share/mysql
 skip-external-locking
 bind-address            = 127.0.0.1
 key_buffer_size         = 32M
-max_allowed_packet      = 16M
+max_allowed_packet      = 64M
 thread_stack            = 128K
 thread_cache_size       = 64
 query_cache_limit       = 8M
