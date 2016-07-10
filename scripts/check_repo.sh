@@ -4,6 +4,9 @@ repos=(
   "/opt/lamp-server"
   "/home/homepage/public_html"
   "/home/homepage.la-z-boyga.com/public_html"
+  "/home/d8-ebco/public_html"
+  "/home/d8-fga/public_html"
+
 )
 
 echo "Checking" ${#repos[@]} "repositories for updates"
