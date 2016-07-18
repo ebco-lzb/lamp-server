@@ -1,15 +1,18 @@
 #!/bin/sh
 
+#variables
+tmp="/home/homepage.la-z-boyga.com/tmp/flashtmp"
+
 #Input user/pw
 . /opt/ftp/variables.txt
 
 #Download Flash Reports
 echo "Downloading Flash Reports"
-newflash=`cd /home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload && ls -tr | tail -1`
-wget -q -N ftp://atlgers.lazboy.atl.local/gers/e1fgat1/print/FLASH.* -P "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"  --user=$flash_username --password=$flash_password
-chown -R homepage.la-z-boyga.com:homepage.la-z-boyga.com "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload"
+newflash=`cd $tmp && ls -tr | tail -1`
+wget -q -N ftp://atlgers.lazboy.atl.local/gers/e1fgat1/print/FLASH.* -P $tmp  --user=$flash_username --password=$flash_password
+chown -R homepage.la-z-boyga.com:homepage.la-z-boyga.com $tmp
 
 #Move Latest Flash to intranet site
 echo "The Latest Flash is $newflash"
-cp "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/tmpdownload/$newflash" "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt"
+cp "$tmp/$newflash" "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt"
 chown homepage.la-z-boyga.com:homepage.la-z-boyga.com "/home/homepage.la-z-boyga.com/public_html/files/rank/flash/web/webflash.txt"

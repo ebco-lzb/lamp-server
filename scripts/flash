@@ -1,15 +1,18 @@
 #!/bin/sh
 
+#variables
+tmp="/home/homepage/tmp/flashtmp"
+
 #Input user/pw
 . /opt/ftp/variables.txt
 
 #Download Flash Reports
 echo "Downloading Flash Reports"
-newflash=`cd /home/homepage/public_html/files/rank/flash/tmpdownload && ls -tr | tail -1`
-wget -q -N ftp://ebcogers.la-z-boyaz.com/gers/e1lzbt1/print/FLASH.*  -P "/home/homepage/public_html/files/rank/flash/tmpdownload" --user=$flash_username --password=$flash_password
-chown -R homepage:homepage "/home/homepage/public_html/files/rank/flash/tmpdownload/"
+newflash=`cd $tmp && ls -tr | tail -1`
+wget -q -N ftp://ebcogers.la-z-boyaz.com/gers/e1lzbt1/print/FLASH.*  -P $tmp --user=$flash_username --password=$flash_password
+chown -R homepage:homepage $tmp
 
 #Move Latest Flash to intranet site
 echo "The Latest Flash is $newflash"
-cp "/home/homepage/public_html/files/rank/flash/tmpdownload/$newflash" "/home/homepage/public_html/files/rank/flash/web/webflash.txt"
+cp "$tmp/$newflash" "/home/homepage/public_html/files/rank/flash/web/webflash.txt"
 chown homepage:homepage "/home/homepage/public_html/files/rank/flash/web/webflash.txt"
