@@ -13,7 +13,7 @@ COMPANY2_TMP="/home/d8-fga/tmp"
     echo "Backing up ${COMPANY1}"
 
     #Backup
-    eval `drush8 @ebco-d8 sql-connect | sed 's/database=/databases /g' | sed 's/mysql/mysqldump/g'` | gzip > ${COMPANY1_TMP}/${COMPANY1_DBBACKUP} ;
+    eval `drush8 @ebco-d8 sql-connect | sed 's/database=/databases /g' | sed 's/mysql/mysqldump/g' | sed 's/--databases//g'` | gzip > ${COMPANY1_TMP}/${COMPANY1_DBBACKUP} ;
 
     #Copy to S3
     echo "Copying $COMPANY1_DBBACKUP to S3://${BACKUP_BUCKET}/${COMPANY1}_dbbackup/${COMPANY1_DBBACKUP}"
@@ -25,7 +25,7 @@ COMPANY2_TMP="/home/d8-fga/tmp"
     echo "Backing up ${COMPANY2}"
 
     #Backup
-    eval `drush8 @fga-d8 sql-connect | sed 's/database=/databases /g' | sed 's/mysql/mysqldump/g'` | gzip > ${COMPANY2_TMP}/${COMPANY2_DBBACKUP} ;
+    eval `drush8 @fga-d8 sql-connect | sed 's/database=/databases /g' | sed 's/mysql/mysqldump/g' | sed 's/--databases//g'` | gzip > ${COMPANY2_TMP}/${COMPANY2_DBBACKUP} ;
 
     #Copy to S3
     echo "Copying $COMPANY2_DBBACKUP to S3://${BACKUP_BUCKET}/${COMPANY2}_dbbackup/${COMPANY2_DBBACKUP}"
