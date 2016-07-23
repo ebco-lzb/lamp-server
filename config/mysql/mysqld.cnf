@@ -1,6 +1,7 @@
 [mysqld_safe]
-socket		= /var/run/mysqld/mysqld.sock
-nice		= 0
+socket		        = /var/run/mysqld/mysqld.sock
+nice		        = 0
+open_files_limit        = 50000 
 
 [mysqld]
 user		= mysql
@@ -28,3 +29,4 @@ expire_logs_days	= 10
 max_binlog_size         = 100M
 innodb_file_per_table   = 1
 #sql_mode                =NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+open_files_limit        = 50000
